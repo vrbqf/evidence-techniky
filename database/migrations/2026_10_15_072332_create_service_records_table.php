@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('service_records', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('equipment_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('equipment_id')->constrained('equipments')->cascadeOnDelete();
             $table->text('description');
             $table->date('serviced_at');
             $table->decimal('cost', 10, 2);

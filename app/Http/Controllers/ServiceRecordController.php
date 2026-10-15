@@ -9,8 +9,9 @@ class ServiceRecordController extends Controller
 {
     public function store(ServiceRecordRequest $request, Equipment $equipment)
     {
+        // Vytvoří záznam přímo přes relaci (automaticky doplní equipment_id)
         $equipment->serviceRecords()->create($request->validated());
 
-        return redirect()->route('equipments.show', $equipment)->with('success', 'Servisní záznam byl přidán.');
+        return redirect()->route('equipments.show', $equipment)->with('success', 'Servisní záznam byl přičten.');
     }
 }

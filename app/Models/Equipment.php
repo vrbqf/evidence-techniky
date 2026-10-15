@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Equipment extends Model
 {
+    // Tady to natvrdo přikážeme Laravelu:
     protected $table = 'equipments';
 
     protected $fillable = [
@@ -25,7 +26,6 @@ class Equipment extends Model
         return $this->hasMany(ServiceRecord::class);
     }
 
-    // Součet servisních nákladů
     public function getTotalServiceCostAttribute(): float
     {
         return $this->serviceRecords()->sum('cost');
